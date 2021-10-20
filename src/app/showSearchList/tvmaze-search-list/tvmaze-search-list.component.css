@@ -1,0 +1,14 @@
+.card{
+    background-color:black;
+    width: 100%;
+}
+.card-header {
+    background-color:black;
+    margin-bottom: 10px;
+    color: white;
+    
+}
+.background-test{
+margin: 10px;
+}
+

@@ -1,0 +1,39 @@
+<div class="background-test">
+    <button type="button" class="btn btn-outline-warning btn-sm" (click)="goHome()">{{backButtonText}}</button>
+  </div>
+  <div *ngIf="isLoading" class="loader">
+  </div>
+  <div *ngIf="hasError" class="error">An error occurred. Please try again after sometime!</div>
+  <div class="container">
+    <div class = "row">
+      <div class="col-md-6">
+        <p class="image"><img [src]="showDetails?.image ? showDetails?.image?.medium : 'assets/no-poster.jpg'" class="rounded"></p> 
+      </div>
+      <div class="col-md-6 details">
+        <p><b>Title</b> : {{showDetails?.name}}</p>
+          <p><b>Language</b> : {{showDetails?.language}}</p>
+          <p><b>Average Rating</b> : {{showDetails?.rating?.average ? showDetails?.rating?.average : 'NA'}}/10</p>
+          <p><b>Genre</b> : {{showDetails?.genres?.join(', ')}}</p>
+          <p><b>Official site</b> : <span *ngIf="!showDetails?.officialSite">NA</span> <a *ngIf="showDetails?.officialSite"
+              [href]="showDetails.officialSite" target="_blank">{{showDetails?.officialSite}}</a></p>
+          <p><b>Premiered</b> : {{showDetails?.premiered | date:'MMM d, y'}}</p>
+          <p><b>Runtime</b> : {{showDetails?.runtime ? showDetails?.runtime: 'NA'}}</p>
+          <p><b>Status</b> : {{showDetails?.status?showDetails?.status:'NA' }}</p>
+          <p><b>Type</b> : {{showDetails?.type? showDetails?.type: 'NA'}}</p>
+           <p><b>Scheduled</b> : {{showDetails?.schedule?.days?.join(', ')}} at {{showDetails?.schedule?.time}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <h3>Cast Details</h3>
+      <div class="thumbs col-lg-12">
+          <div class="flex-container" >
+              <carousel>
+                  <div class="carousel-cell" *ngFor="let data of castDetails">
+                      <img  [src]="data?.character?.image ? data?.character?.image?.medium : 'assets/no-poster.jpg'" class="rounded-circle" />
+                  </div>
+              </carousel>
+          </div>
+      </div>
+  </div>
+  </div>
+ 

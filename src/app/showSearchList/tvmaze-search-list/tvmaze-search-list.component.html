@@ -1,0 +1,26 @@
+<div class="background-test">
+    <button type="button" class="btn btn-outline-warning btn-sm" (click)="goDashBoard()">Back to
+      DashBoard</button>
+  </div>
+
+<div class="card">
+    <h5 class="card-header"> Search Results for "{{serachVal.searchInput}}" :</h5>
+    <p *ngIf="searchResults.length == 0">No Results found!</p>
+    <div *ngIf="isLoadingIndicator" class="loader"></div>
+    <div *ngIf="hasError" class="error">An unexpected error happend. Please try after sometime!</div>
+    <div class="row">
+        <div class="thumbs col-lg-12">
+            <div class="flex-container" >
+                <carousel>
+                    <div class="carousel-cell" *ngFor="let data of searchResults">
+                        <img [routerLink]="['/show-details', data?.id]" [state]="{searchInput: serachVal.searchInput}" [src]="data?.image ? data?.image?.medium : 'assets/no-poster.jpg'"  class="rounded-circle" style = "height: 85%;" />
+                    <div class="carousel-caption"  style = "top: 150px;bottom: auto; color: black;" [routerLink]="['/show-details', data?.id]">
+                        Rating : {{data?.rating?.average}}
+                    </div>
+                    </div>
+                </carousel>
+            </div>
+        </div>
+    </div>
+</div>
+   

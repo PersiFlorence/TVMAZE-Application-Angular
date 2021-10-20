@@ -1,0 +1,15 @@
+  <div *ngIf="isLoadingIndicator" class="loader"><span class="spinner-border text-primary"></span></div>
+  <div class="topnav">
+    <div class="search-container">
+      <form>
+        <input class = "rounded" type="text" placeholder="Search for Show..." name="searchForShow" [(ngModel)]="searchForShow" required>
+        <button type="submit"   routerLink="/searchList" [state]="{searchInput: searchForShow}"  [disabled]="!searchForShow"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+  <ng-container>
+    <app-tvmaze-show-list [genresType]="'Drama'" [searchResults]="dramaData"></app-tvmaze-show-list>&nbsp;
+    <app-tvmaze-show-list [genresType]="'Comedy'" [searchResults]="comedyData"></app-tvmaze-show-list>&nbsp;
+    <app-tvmaze-show-list [genresType]="'Action'" [searchResults]="actionData"></app-tvmaze-show-list>&nbsp;
+    <app-tvmaze-show-list [genresType]="'Sports'" [searchResults]="sportsData"></app-tvmaze-show-list>&nbsp;
+  </ng-container>

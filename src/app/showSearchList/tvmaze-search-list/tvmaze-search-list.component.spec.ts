@@ -3,7 +3,6 @@ import { of, throwError } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TvmazeSearchListComponent } from './tvmaze-search-list.component';
 import { TvmazeServiceService } from 'src/app/services/tvmaze-service.service';
-import { HttpService } from 'src/app/services/http.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, convertToParamMap, Router } from '@angular/router';
@@ -21,7 +20,7 @@ describe('TvmazeSearchListComponent', () => {
       imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([
         { path: 'dashboard', component: TvmazeDashboardComponent }
       ])],
-      providers: [HttpService, HttpClient, TvmazeServiceService, {
+      providers: [HttpClient, TvmazeServiceService, {
         provide: ActivatedRoute, Router, useValue: {
           paramMap: of(convertToParamMap({ id: 1 }))
         }
@@ -33,23 +32,26 @@ describe('TvmazeSearchListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TvmazeSearchListComponent);
     component = fixture.componentInstance;
-    component.serachVal = {searchInput : "drama"};
     fixture.detectChanges();
     router = TestBed.get(Router);
   });
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should call API to get Show details', () => {
+  it('should call API to get Search Shows', () => {
     spyOn(TvmazeServiceService.prototype, 'searchShows').and.returnValue(of(JSON.parse(mockData)));
     component.getShowsBySearch('drama');
     expect(component.searchResults.length).toBeGreaterThan(0);
   }); 
-  it('should show error when API call returns an error', () => {
+  it('should show error when API call returns an error for Search Shows', () => {
     spyOn(TvmazeServiceService.prototype, 'searchShows').and.returnValue(throwError('error'));
     component.serachVal = 'drama';
     component.getShowsBySearch(component.serachVal);
     expect(component.hasError).toBeTruthy();
   });
+  it('should navigate to Dashboard Page when gotoDashboard is clicked', () => {
+    component.goDashBoard();
+    expect(router.navigate).toHaveBeenCalledWith(['/dashboard']);
+  }); 
 
 });

@@ -1,30 +1,32 @@
 import { Injectable } from '@angular/core';
 import { TvShows } from '../modals/tvshow.interface';
 import { Observable } from 'rxjs';
-import { HttpService } from './http.service';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TvmazeServiceService {
-
   isLoading = false;
   showsData: TvShows[] = [];
-  constructor(private httpService: HttpService,) { }
-  // Below getAllTVShows method fetches all the shows from tvmaze API
+  url :string = 'https://api.tvmaze.com/';
+  constructor(private http: HttpClient) { 
+  }
+  
+   /* Below getAllTVShows method fetches all the shows from tvmaze API */
   getAllTVShows(): Observable<any> {
-    return this.httpService.get(`https://api.tvmaze.com/shows?page=1`);
+    return this.http.get(`${this.url}shows?page=1`);
   }
-  // Below searchShows method fetch results based on the input text provided
+  /*  Below searchShows method fetch results based on the input text provided */
   searchShows(searchText: string): Observable<any> {
-    return this.httpService.get(`https://api.tvmaze.com/search/shows?q=${searchText}`);
+    return this.http.get(`${this.url}search/shows?q=${searchText}`);
   }
-  // Below getShowDetails method fetch details based on the show id provided
+   /* Below getShowDetails method fetch details based on the show id provided */
   getShowDetails(id: number): Observable<any> {
-    return this.httpService.get(`https://api.tvmaze.com/shows/${id}`);
+    return this.http.get(`${this.url}shows/${id}`);
   }
-   // Below getShowDetails method fetch details based on the show id provided
+   /*  Below getShowDetails method fetch details based on the show id provided */
    getShowCast(id: number): Observable<any> {
-    return this.httpService.get(`https://api.tvmaze.com/shows/${id}/cast`);
+    return this.http.get(`${this.url}shows/${id}/cast`);
   }
 }

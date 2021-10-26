@@ -4,7 +4,7 @@
   <div *ngIf="isLoading" class="loader">
   </div>
   <div *ngIf="hasError" class="error">An error occurred. Please try again after sometime!</div>
-  <div class="container">
+  <div class="container" *ngIf="showDetails?.name">
     <div class = "row">
       <div class="col-md-6">
         <p class="image"><img [src]="showDetails?.image ? showDetails?.image?.medium : 'assets/no-poster.jpg'" class="rounded"></p> 

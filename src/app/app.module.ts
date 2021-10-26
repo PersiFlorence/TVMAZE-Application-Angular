@@ -9,6 +9,7 @@ import { TvmazeShowDetailsComponent } from './showDetails/tvmaze-show-details/tv
 import { TvmazeShowListComponent } from './showList/tvmaze-show-list/tvmaze-show-list.component';
 import { TvmazeSearchListComponent } from './showSearchList/tvmaze-search-list/tvmaze-search-list.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { PageNotFoundComponent } from './pageNotFound/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     TvmazeDashboardComponent,
     TvmazeShowDetailsComponent,
     TvmazeShowListComponent,
-    TvmazeSearchListComponent
+    TvmazeSearchListComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

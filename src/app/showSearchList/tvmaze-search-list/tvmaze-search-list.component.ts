@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Location } from '@angular/common';
 import { TvmazeServiceService } from 'src/app/services/tvmaze-service.service';
-import { TvShows } from 'src/app/modals/tvshow.interface';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,29 +9,22 @@ import { Router } from '@angular/router';
 })
 export class TvmazeSearchListComponent implements OnInit {
   public serachVal!: any;
-  searchForShow = '';
-  allShowsData: TvShows[] = [];
   searchResults: any = [];
   isLoadingIndicator: boolean = false;
   hasError: boolean = false;
-  constructor(private location:Location,private showsData: TvmazeServiceService, private router: Router) { }
-
+  
+  constructor(private searchShowsService: TvmazeServiceService, private router: Router) { }
+  /* Below method fetches TV shows based on Search Value from Service */
   ngOnInit(): void {
-    if(this.location.getState()){
-      this.serachVal = this.location.getState();
-      if(this.serachVal.searchInput){
-      localStorage.setItem("searchValue", this.serachVal.searchInput);
-      this.getShowsBySearch(this.serachVal.searchInput);
-      }else{
+      if(localStorage.getItem("searchValue")?.length){
+        this.serachVal = localStorage.getItem("searchValue");
         this.getShowsBySearch(localStorage.getItem("searchValue"));
-        this.serachVal.searchInput = localStorage.getItem("searchValue");
       }
-    }
   }
-  // Below function fetches all the shows from tvmaze API based on Search input
+  /*  Below function fetches all the shows from tvmaze API based on Search input */
   getShowsBySearch(searchVal : any) {
     this.isLoadingIndicator = true;
-    this.showsData.searchShows(searchVal).subscribe(
+    this.searchShowsService.searchShows(searchVal).subscribe(
       (data: any) => {
         this.searchResults = data.map((item: { show: any; }) => item.show);
         this.hasError = false;
@@ -46,6 +37,7 @@ export class TvmazeSearchListComponent implements OnInit {
       }
     );
   }
+  /* Below method is used to Redirect to the Dashboard */
   goDashBoard() {
     this.router.navigate(['/dashboard']);
   }

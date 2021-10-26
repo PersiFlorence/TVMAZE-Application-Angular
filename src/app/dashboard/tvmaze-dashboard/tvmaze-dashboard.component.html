@@ -1,9 +1,10 @@
-  <div *ngIf="isLoadingIndicator" class="loader"><span class="spinner-border text-primary"></span></div>
+<!--  TV MAZE Dashboard showing all TV Shows based on genres and Rating -->
+ <div *ngIf="isLoadingIndicator" class="loader"><span class="spinner-border text-primary"></span></div>
   <div class="topnav">
     <div class="search-container">
       <form>
         <input class = "rounded" type="text" placeholder="Search for Show..." name="searchForShow" [(ngModel)]="searchForShow" required>
-        <button type="submit"   routerLink="/searchList" [state]="{searchInput: searchForShow}"  [disabled]="!searchForShow"><i class="fa fa-search"></i></button>
+        <button type="submit" (click)="goToSearch(searchForShow)" [disabled]="!searchForShow"><i class="fa fa-search"></i></button>
       </form>
     </div>
   </div>

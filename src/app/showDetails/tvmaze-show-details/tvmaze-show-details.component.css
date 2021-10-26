@@ -2,6 +2,11 @@
   margin-top: 10px;
   margin-left: 20px;
 }
+.error{
+  color: white;
+  margin: 10px;
+  font-size: 25px;
+}
 .container{
   background-color: black;
   color: white;

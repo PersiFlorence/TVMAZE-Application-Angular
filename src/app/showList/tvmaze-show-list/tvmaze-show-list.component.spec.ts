@@ -24,20 +24,13 @@ describe('TvmazeShowListComponent', () => {
     fixture = TestBed.createComponent(TvmazeShowListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    component.searchText = 'drama';
     component.searchResults = [];
     component.genresType = '';
-    component.showsData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0] as any;
+    component.showsDataByGenres = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0] as any;
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-  it('should save data received from parent as searchData to be saved in searchText variable', () => {
-    component.ngOnChanges({
-      searchData: new SimpleChange(null, 'drama', false)
-    });
-    expect(component.searchText).toEqual('drama');
   });
 
   it('should save data received from parent genresType to be saved in genre variable', () => {
@@ -47,17 +40,11 @@ describe('TvmazeShowListComponent', () => {
     expect(component.genre).toEqual('Drama');
   });
 
-  it('should save data received from parent searchResults to be saved in showsData variable', () => {
+  it('should save data received from parent searchResults to be saved in showsDataByGenres variable', () => {
     component.ngOnChanges({
       searchResults: new SimpleChange(null, JSON.parse(testData), false)
     });
-    expect(component.showsData.length).toBeGreaterThanOrEqual(0);
+    expect(component.showsDataByGenres.length).toBeGreaterThanOrEqual(0);
   });
 
-  it('should set showsData to empty array when no data received from parent for searchResults', () => {
-    component.ngOnChanges({
-      searchResults: new SimpleChange(null, null, false)
-    });
-    expect(component.showsData.length).toEqual(0);
-  });
 });

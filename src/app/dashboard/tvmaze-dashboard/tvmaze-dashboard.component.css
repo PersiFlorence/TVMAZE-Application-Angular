@@ -6,10 +6,8 @@
 .topnav .search-container {
   float: right;
 }
-
 .topnav input[type=text] {
   padding: 6px;
-  margin-top: 8px;
   margin-bottom: 5px;
   font-size: 17px;
   border: none;
@@ -18,7 +16,6 @@
 .topnav .search-container button {
   float: right;
   padding: 6px 10px;
-  margin-top: 8px;
   margin-right: 16px;
   background:rgb(75, 122, 32);
   font-size: 17px;

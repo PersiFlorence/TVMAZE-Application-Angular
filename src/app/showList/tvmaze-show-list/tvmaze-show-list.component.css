@@ -6,7 +6,9 @@
     background-color: black;
     color: white;
 }
-
+.thumbs{
+    z-index:12;
+}
 .flex-container {
     display: flex;
     z-index: 1000;

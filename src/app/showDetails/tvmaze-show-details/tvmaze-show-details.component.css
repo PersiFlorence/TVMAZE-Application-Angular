@@ -1,19 +1,11 @@
-.background-test{
-  margin-top: 10px;
-  margin-left: 20px;
-}
+
 .error{
   color: white;
   margin: 10px;
   font-size: 25px;
 }
-.container{
-  background-color: black;
-  color: white;
-  border: 2px;
-  margin-top: 10px;
+.row{
   margin-bottom: 20px;
-  padding-bottom: 20px;
 }
 p.image > img {
   margin-top: 20px;
@@ -21,9 +13,7 @@ p.image > img {
   width: 100%;
   padding-right: 20px;
 }
-.details{
-  margin-top: 15px;
-}
+
 .loader{
     position: fixed;
     left: 0px;

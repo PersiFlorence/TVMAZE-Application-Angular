@@ -1,4 +1,5 @@
 <!--  TV MAZE Dashboard showing all TV Shows based on genres and Rating -->
+<div class = "row">
  <div *ngIf="isLoadingIndicator" class="loader"><span class="spinner-border text-primary"></span></div>
   <div class="topnav">
     <div class="search-container">
@@ -14,3 +15,4 @@
     <app-tvmaze-show-list [genresType]="'Action'" [searchResults]="actionData"></app-tvmaze-show-list>&nbsp;
     <app-tvmaze-show-list [genresType]="'Sports'" [searchResults]="sportsData"></app-tvmaze-show-list>&nbsp;
   </ng-container>
+</div>

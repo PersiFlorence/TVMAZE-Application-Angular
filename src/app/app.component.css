@@ -3,6 +3,11 @@ img{
 }
 .navbar-custom {
     background-color:#073c68;
+    overflow: hidden;
+    position: fixed;
 }
-
+.container{
+    margin-top: 80px;
+    color: white;
+}
 

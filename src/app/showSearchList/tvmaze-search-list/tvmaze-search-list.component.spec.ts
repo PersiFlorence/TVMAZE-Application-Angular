@@ -41,6 +41,8 @@ describe('TvmazeSearchListComponent', () => {
   it('should call API to get Search Shows', () => {
     spyOn(TvmazeServiceService.prototype, 'searchShows').and.returnValue(of(JSON.parse(mockData)));
     component.getShowsBySearch('drama');
+    spyOn(component.searchResults, 'sort');
+    expect( component.searchResults.sort()).toEqual( component.searchResults.sort());
     expect(component.searchResults.length).toBeGreaterThan(0);
   }); 
   it('should show error when API call returns an error for Search Shows', () => {

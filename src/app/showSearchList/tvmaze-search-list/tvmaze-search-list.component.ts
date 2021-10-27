@@ -27,6 +27,7 @@ export class TvmazeSearchListComponent implements OnInit {
     this.searchShowsService.searchShows(searchVal).subscribe(
       (data: any) => {
         this.searchResults = data.map((item: { show: any; }) => item.show);
+        this.searchResults.sort((a: { rating: { average: number; }; }, b: { rating: { average: number; }; }) => a.rating.average > b.rating.average ? -1 : 1);
         this.hasError = false;
       },
       (error) => {

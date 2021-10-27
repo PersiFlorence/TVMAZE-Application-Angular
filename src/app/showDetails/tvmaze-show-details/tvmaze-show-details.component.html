@@ -25,7 +25,7 @@
       <h3>Cast Details</h3>
       <h4 class="card-header" *ngIf="castDetails?.length == 0">No Results found!</h4>
       <br><br>
-      <div class="thumbs col-lg-12" *ngIf="castDetails.length !== 0">
+      <div class="thumbs col-lg-12" *ngIf="castDetails?.length !== 0">
           <div class="flex-container" >
               <carousel>
                   <div class="carousel-cell" *ngFor="let data of castDetails">

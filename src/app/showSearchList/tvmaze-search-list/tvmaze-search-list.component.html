@@ -14,8 +14,8 @@
                 <carousel>
                     <div class="carousel-cell" *ngFor="let data of searchResults">
                         <img [routerLink]="['/show-details', data?.id]"  [src]="data?.image ? data?.image?.medium : 'assets/no-poster.jpg'"  class="rounded-circle" style = "height: 85%;" />
-                    <div class="carousel-caption"  style = "top: 150px;bottom: auto; color: black;" [routerLink]="['/show-details', data?.id]">
-                        Rating : {{data?.rating?.average}}
+                    <div class="carousel-caption"  [routerLink]="['/show-details', data?.id]">
+                        Rating : {{data?.rating?.average ? data?.rating?.average: 'NA' }}
                     </div>
                     </div>
                 </carousel>

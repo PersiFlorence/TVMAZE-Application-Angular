@@ -10,4 +10,8 @@
 .background-test{
 margin: 15px;
 }
-
+.carousel-caption{
+    top: 150px;
+    bottom: auto;
+    color:white;
+}

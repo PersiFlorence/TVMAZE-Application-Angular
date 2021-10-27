@@ -16,13 +16,13 @@
 .topnav .search-container button {
   float: right;
   padding: 6px 10px;
-  background:rgb(75, 122, 32);
+  background:#073c68;
   font-size: 17px;
   border: none;
   cursor: pointer;
 }
 .topnav .search-container button:hover {
-  background: #ccc;
+  background: #ffc107;
 }
 .loader {
     text-align: center;

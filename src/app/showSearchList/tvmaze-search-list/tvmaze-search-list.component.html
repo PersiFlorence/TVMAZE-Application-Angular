@@ -6,7 +6,7 @@
 <div class="card">
     <h5 class="card-header"> Search Results for "{{serachVal}}" :</h5>
     <h5 class="card-header" *ngIf="searchResults.length == 0">No Results found!</h5>
-    <div *ngIf="isLoadingIndicator" class="loader"></div>
+    <div *ngIf="isLoadingIndicator" class="loader"><span class="spinner-border text-primary"></span></div>
     <div *ngIf="hasError"class="card-header">An unexpected error happend. Please try after sometime!</div>
     <div class="row"  *ngIf="searchResults.length > 0">
         <div class="thumbs col-lg-12">

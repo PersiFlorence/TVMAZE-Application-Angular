@@ -1,6 +1,5 @@
   <button type="button" class="btn btn-outline-warning btn-sm" (click)="goHome()">{{backButtonText}}</button>
-  <div *ngIf="isLoading" class="loader">
-  </div>
+  <div *ngIf="isLoading" class="loader"><span class="spinner-border text-primary"></span></div>
   <div *ngIf="hasError" class="error">An error occurred. Please try again after sometime!</div>
     <div class = "row" *ngIf="showDetails?.name">
       <div class="col-md-6">
